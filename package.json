@@ -1,0 +1,32 @@
+{
+  "name": "jasmine-es6",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Interface ES6 jasmine",
+  "private": true,
+  "scripts": {
+    "start": "node --experimental-json-modules main.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "camelcase": "^6.0.0",
+    "fast-glob": "^3.2.4",
+    "glob": "^7.1.6",
+    "jasmine": "^3.6.1",
+    "jasmine-console-reporter": "^3.1.0",
+    "jasmine-core": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint": "5.10.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.francethd.fr/agnum/extranet_v2_API"
+  },
+  "author": "Erwan Moreau",
+  "license": "MIT"
+}
