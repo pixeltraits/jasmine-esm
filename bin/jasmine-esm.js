@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import path from 'path';
-import Command from '../lib/command.js';
+import Command from '../node_modules/jasmine/lib/command.js';
 import JasmineEsm from '../jasmine-esm.js';
 
 (async () => {
