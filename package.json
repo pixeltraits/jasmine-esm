@@ -8,6 +8,9 @@
     "start": "node --experimental-json-modules index.js",
     "lint": "eslint ."
   },
+  "bin": {
+    "jasmineEsm": "bin/jasmine-esm.js"
+  },
   "dependencies": {
     "fast-glob": "^3.2.4",
     "jasmine": "^3.6.1",
