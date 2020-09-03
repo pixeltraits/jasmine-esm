@@ -198,7 +198,7 @@ export default class JasmineEsm {
   }
 
   async execute(files, filterString) {
-    await jasmineEsm.loadConfigFile();
+    await this.loadConfigFile();
     this.completionReporter.exitHandler = this.checkExit;
     await this.loadRequires();
     await this.loadHelpers();
@@ -284,6 +284,3 @@ export default class JasmineEsm {
   }
 
 }
-
-module.exports = JasmineEsm;
-module.exports.ConsoleReporter = ConsoleReporter;
