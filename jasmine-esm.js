@@ -100,6 +100,7 @@ export default class JasmineEsm {
   async loadConfigFile(configFilePath) {
     try {
       const absoluteConfigFilePath = path.resolve(this.projectBaseDir, configFilePath || './spec/support/jasmine.json');
+      console.log(absoluteConfigFilePath)
       const config = await import(absoluteConfigFilePath);
       this.loadConfig(config.default);
     } catch (error) {
