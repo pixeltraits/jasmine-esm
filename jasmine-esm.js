@@ -7,7 +7,7 @@ import ConsoleSpecFilter from './node_modules/jasmine/lib/filters/console_spec_f
 import ConsoleReporter from './node_modules/jasmine/lib/reporters/console_reporter.js';
 
 
-export default class Jasmine {
+export default class JasmineEsm {
 
   constructor(options) {
     options = options || {};
@@ -198,6 +198,7 @@ export default class Jasmine {
   }
 
   async execute(files, filterString) {
+    await jasmineEsm.loadConfigFile();
     this.completionReporter.exitHandler = this.checkExit;
     await this.loadRequires();
     await this.loadHelpers();
@@ -283,3 +284,6 @@ export default class Jasmine {
   }
 
 }
+
+module.exports = JasmineEsm;
+module.exports.ConsoleReporter = ConsoleReporter;

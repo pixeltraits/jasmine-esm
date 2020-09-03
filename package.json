@@ -1,17 +1,15 @@
 {
-  "name": "jasmine-es6",
-  "version": "0.0.1",
+  "name": "jasmine-esm",
+  "version": "0.1.0",
   "type": "module",
   "description": "Interface ES6 jasmine",
-  "private": true,
+  "main": "jasmine-esm.js",
   "scripts": {
-    "start": "node --experimental-json-modules main.js",
+    "start": "node --experimental-json-modules index.js",
     "lint": "eslint ."
   },
   "dependencies": {
-    "camelcase": "^6.0.0",
     "fast-glob": "^3.2.4",
-    "glob": "^7.1.6",
     "jasmine": "^3.6.1",
     "jasmine-console-reporter": "^3.1.0",
     "jasmine-core": "^3.6.0"
@@ -25,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://gitlab.francethd.fr/agnum/extranet_v2_API"
+    "url": "https://github.com/pixeltraits/jasmine-esm"
   },
   "author": "Erwan Moreau",
   "license": "MIT"
