@@ -1,8 +1,8 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --experimental-json-modules
 
 import path from 'path';
-import Command from '../node_modules/jasmine/lib/command.js';
-import JasmineEsm from '../jasmine-esm.js';
+import Command from 'jasmine/lib/command.js';
+import JasmineEsm from '../src/jasmine-esm.js';
 
 (async () => {
   const jasmineEsm = new JasmineEsm({ projectBaseDir: path.resolve() });

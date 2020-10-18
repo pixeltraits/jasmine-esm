@@ -1,15 +1,14 @@
 {
   "name": "jasmine-esm",
-  "version": "0.2.4",
+  "version": "0.3.1",
   "type": "module",
   "description": "Interface ES6 jasmine",
-  "main": "jasmine-esm.js",
   "scripts": {
-    "start": "node --experimental-json-modules index.js",
+    "start": "node --experimental-json-modules bin/index.js",
     "lint": "eslint ."
   },
   "bin": {
-    "jasmineEsm": "node --experimental-json-modules bin/jasmine-esm.js"
+    "jasmineEsm": "bin/index.js"
   },
   "dependencies": {
     "fast-glob": "^3.2.4",

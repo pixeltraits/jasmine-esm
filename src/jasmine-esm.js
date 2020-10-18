@@ -1,10 +1,11 @@
 import path from 'path';
+import url from 'url';
 import util from 'util';
 import fg from 'fast-glob';
 import jasminecore from 'jasmine-core';
-import CompletionReporter from './node_modules/jasmine/lib/reporters/completion_reporter.js';
-import ConsoleSpecFilter from './node_modules/jasmine/lib/filters/console_spec_filter.js';
-import ConsoleReporter from './node_modules/jasmine/lib/reporters/console_reporter.js';
+import CompletionReporter from 'jasmine/lib/reporters/completion_reporter.js';
+import ConsoleSpecFilter from 'jasmine/lib/filters/console_spec_filter.js';
+import ConsoleReporter from 'jasmine/lib/reporters/console_reporter.js';
 
 
 export default class JasmineEsm {
@@ -84,24 +85,23 @@ export default class JasmineEsm {
   };
 
   async loadSpecs() {
-    return await Jasmine.promiseAllCollectionImport(this.specFiles);
+    return await this.promiseAllCollectionImport(this.specFiles);
   };
 
   async loadHelpers() {
     //delete require.cache[require.resolve(file)]
-    return await Jasmine.promiseAllCollectionImport(this.helperFiles);
+    return await this.promiseAllCollectionImport(this.helperFiles);
   };
 
   async loadRequires() {
     //delete require.cache[require.resolve(r)];
-    return await Jasmine.promiseAllCollectionImport(this.requires);
+    return await this.promiseAllCollectionImport(this.requires);
   };
 
   async loadConfigFile(configFilePath) {
     try {
-      const absoluteConfigFilePath = path.resolve(this.projectBaseDir, configFilePath || './spec/support/jasmine.json');
-      console.log(absoluteConfigFilePath)
-      const config = await import(absoluteConfigFilePath);
+      const absoluteConfigFilePath = path.resolve(this.projectBaseDir, configFilePath || 'spec/support/jasmine.json');
+      const config = await import(url.pathToFileURL(absoluteConfigFilePath));
       this.loadConfig(config.default);
     } catch (error) {
       if (configFilePath || error.code != 'MODULE_NOT_FOUND') {
@@ -271,13 +271,14 @@ export default class JasmineEsm {
     }
   };
 
-  static async promiseAllCollectionImport(collection) {
+  async promiseAllCollectionImport(collection) {
     const collectionLength = collection.length;
     const promises = [];
 
     for (let x = 0; x < collectionLength; x++) {
+      const absPath = path.resolve(this.projectBaseDir, collection[x]);
       promises.push(
-        import('./'+collection[x])
+        import(url.pathToFileURL(absPath))
       );
     }
 
