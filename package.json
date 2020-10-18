@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "bin": {
-    "jasmineEsm": "bin/jasmine-esm.js"
+    "jasmineEsm": "node --experimental-json-modules bin/jasmine-esm.js"
   },
   "dependencies": {
     "fast-glob": "^3.2.4",
